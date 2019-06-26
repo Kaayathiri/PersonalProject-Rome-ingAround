@@ -14,6 +14,7 @@ public class romeService {
 		
 		@Autowired
 		private romeRepository romeRepository;
+		hello
 		
 	}}
 		
