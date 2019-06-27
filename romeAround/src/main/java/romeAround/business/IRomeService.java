@@ -3,18 +3,17 @@ package romeAround.business;
 import java.util.List;
 import java.util.Optional;
 
-import romeAround.domain.romeAround;
+import romeAround.domain.RomeAround;
+
+public interface IRomeService {
 
 
-public class IRomeService {
+		 List<RomeAround> getActivity();
 
+		void deleteActivity(Long id);
 
-		List<romeAround> getActivity();
+		RomeAround addActivity(RomeAround romeAround);
 
-		void deleteTodo(Long id);
-
-		romeAround addActivity(romeAround romeAround);
-
-		Optional<romeAorund> findById(long id);
+		Optional<RomeAround> findById(long id);
 
 	}
