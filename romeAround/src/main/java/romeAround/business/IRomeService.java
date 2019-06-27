@@ -5,16 +5,15 @@ import java.util.Optional;
 
 import romeAround.domain.romeAround;
 
+public interface IRomeService {
 
-public class IRomeService {
 
+		 List<romeAround> getActivity();
 
-		List<romeAround> getActivity();
-
-		void deleteTodo(Long id);
+		void deleteActivity(Long id);
 
 		romeAround addActivity(romeAround romeAround);
 
-		Optional<romeAorund> findById(long id);
+		Optional<romeAround> findById(long id);
 
 	}

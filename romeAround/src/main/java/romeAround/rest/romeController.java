@@ -12,24 +12,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import romeAround.business.iRomeService;
+import romeAround.business.IRomeService;
+
 import romeAround.constants.Constants;
+import romeAround.domain.romeAround;
 
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class romeController {
 
+	
 	@Autowired
-	private iRomeService romeService;
+	private IRomeService romeService;
 
 	@GetMapping(path = Constants.ACTIVITY)
 	public ResponseEntity<List<romeAround>> getActivity() {
 		return ResponseEntity.ok(romeService.getActivity());
 	}
 	
-	@RequestMapping(value = Constants.ACTIVITY, method = RequestMethod.POST)
-	public ResponseEntity<romeAround> postActivity(@RequestBody romeAround romeAround) {
+@RequestMapping(value = Constants.ACTIVITY, method = RequestMethod.POST)
+public ResponseEntity<romeAround> postActivity(@RequestBody romeAround romeAround) {
 		return ResponseEntity.ok(romeService.addActivity(romeAround));
 	}
 

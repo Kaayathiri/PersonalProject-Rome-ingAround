@@ -3,12 +3,10 @@ package romeAround.persistence;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-
-
-public class romeRepository {
+import romeAround.domain.romeAround;
 
 	@Repository
-	public interface TodoRepository extends JpaRepository<romeAround, Long> {
+	public interface romeRepository extends JpaRepository<romeAround, Long> {
 		
 	}
-}
+
