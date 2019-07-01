@@ -5,8 +5,8 @@
     transition: 0.3s;
     width: 80%;
     text-align: center;
-    padding: 15px;
-  border-radius: .25rem;
+    padding: 20px;
+  border-radius: .5rem;
   align-items: center;
 }
 
@@ -16,4 +16,11 @@
    
     grid-gap: 20px;
 
+}
+.card-title{ //information
+    font-size: 10px;
+    text-align: 
+}
+.card-content{ //activity name
+    font-size: 20px;
 }

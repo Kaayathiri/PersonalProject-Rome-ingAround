@@ -69,6 +69,8 @@ function generateActivity(item) {
 
 
 
+
+
 const xhr = new XMLHttpRequest();
 
 
