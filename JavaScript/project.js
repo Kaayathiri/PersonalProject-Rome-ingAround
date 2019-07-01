@@ -53,6 +53,9 @@ function generateActivity(item) {
 
    const image = document.createElement('img');
     image.className = 'card-image';
+    image.src="C://images/"+item.activity_image;
+    //image.innerHTML= "<img src='c:/images/1.jpg'></img>";
+   
     wrapper.append(image);
 
    const name = document.createElement('h5');
