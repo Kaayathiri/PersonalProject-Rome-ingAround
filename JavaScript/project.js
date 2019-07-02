@@ -1,34 +1,4 @@
-// var xhr = new XMLHttpRequest();
-// xhr.open('GET','http://localhost:8080/activity', true);
-// xhr.responseType = 'text';
 
-
-
-// xhr.onload = function() {
-//    if (xhr.status ===200) {
-//    var activityInfo = JSON.parse(xhr.responseText);
-//  //  console.log(activityInfo);
-
-
-
-// var myActivityInfo = "";
-//    for (i=0; i<activityInfo.length; i++) {
-//        var x=i+1;
-//        //myActivityInfo += activityInfo[i].id;
-//        myActivityInfo += "<br> "+activityInfo[i].activity_name+" <br>";
-//        myActivityInfo += ""+activityInfo[i].activity_information+" <br>";
-//       // console.log(activityInfo);
-
-
-//    } // end loop
-
-//    document.getElementById('message').innerHTML = myActivityInfo;
-
-// }
-
-
-// }
-//    xhr.send();
 
 
 function displayActivityData(data) {
@@ -63,17 +33,16 @@ function generateActivity(item) {
    name.innerHTML = item.activity_name;
    wrapper.append(name);
 
+   var button = document.createElement("button");
+   button. innerText = "+";
+ 
+   wrapper.append(button);
+
    return wrapper;
 }
 
 
-
-
-
-
 const xhr = new XMLHttpRequest();
-
-
 
 xhr.onload = () => {
 
@@ -83,11 +52,27 @@ xhr.onload = () => {
    displayActivityData(activityInfo);
 
 
-
 }
 
 xhr.open('GET', 'http://localhost:8080/activity');
 xhr.send();
 
+
+
+xhr = new XMLHttpRequest();
+var url = "http://localhost:8080/activity";
+xhr.open("POST", url, true);
+xhr.setRequestHeader("Content-type", "application/json");
+xhr.onreadystatechange = function () { 
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        var json = JSON.parse(xhr.responseText);
+        console.log(json.activity_name + ", " + json.activity_information)
+    }
+}
+var data = JSON.stringify({"activity_name":"Roma","activity_information":"Italy"});
+xhr.send(data);
+
+
+  
 
 
