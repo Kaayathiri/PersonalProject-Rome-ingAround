@@ -17,10 +17,21 @@
     grid-gap: 20px;
 
 }
-.card-title{ //information
+.card-title{ 
     font-size: 10px;
-    text-align: 
+    text-align: center;
 }
-.card-content{ //activity name
+.card-content{ 
     font-size: 20px;
+}
+.card-image{
+    padding-bottom: 10px;
+    align-content: center;
+}
+
+body{
+    padding-top: 70px;
+}
+.navbar-brand{
+    image: url("C:\Users\Kath\Pictures\logo-1.jpg");
 }

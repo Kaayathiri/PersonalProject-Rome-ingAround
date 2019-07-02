@@ -7,12 +7,12 @@
   background-repeat: no-repeat;
 }
 .font-weight-light{
-color: white;
+
 
 font-weight: bolder; 
-font-size: 5em;
+font-size: 2em;
 text-shadow: 2px 2px darkgrey;
-
+;
 }
 .lead{
 color: white;
