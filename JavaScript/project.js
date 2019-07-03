@@ -1,9 +1,4 @@
-
-
-
 function displayActivityData(data) {
-
-
 
    const container = document.getElementById("cardContainers");
    data.forEach((item) => {
@@ -12,6 +7,7 @@ function displayActivityData(data) {
 
    });
 }
+
 function generateActivity(item) {
    const wrapper = document.createElement('div');
    wrapper.className = 'col-s12-m6';
@@ -24,8 +20,6 @@ function generateActivity(item) {
    const image = document.createElement('img');
     image.className = 'card-image';
     image.src="C://images/"+item.activity_image;
-    //image.innerHTML= "<img src='c:/images/1.jpg'></img>";
-   
     wrapper.append(image);
 
    const name = document.createElement('h5');
@@ -33,14 +27,20 @@ function generateActivity(item) {
    name.innerHTML = item.activity_name;
    wrapper.append(name);
 
-   var button = document.createElement("button");
-   button. innerText = "+";
- 
-   wrapper.append(button);
+    const button = document.createElement("button");
+    button.innerHTML = "delete";
+    button.setAttribute("data-id", item.id);
+    button.addEventListener('click', deleteLocation,true);
+    wrapper.append(button);
+    
 
-   return wrapper;
+   // button.setAttribute("onClick", DeleteFromDatabase(item.id));
+   //  if (button.onclick==item.id){
+   //     DeleteFromDatabase(item.id)
+   //  }
+
+   return wrapper; 
 }
-
 
 const xhr = new XMLHttpRequest();
 
@@ -50,29 +50,50 @@ xhr.onload = () => {
    //console.log("response is" + this.response);
    console.log("Data:", activityInfo);
    displayActivityData(activityInfo);
-
-
 }
 
 xhr.open('GET', 'http://localhost:8080/activity');
 xhr.send();
 
 
+//POST 
 
-xhr = new XMLHttpRequest();
-var url = "http://localhost:8080/activity";
-xhr.open("POST", url, true);
-xhr.setRequestHeader("Content-type", "application/json");
-xhr.onreadystatechange = function () { 
-    if (xhr.readyState == 4 && xhr.status == 200) {
-        var json = JSON.parse(xhr.responseText);
-        console.log(json.activity_name + ", " + json.activity_information)
-    }
-}
-var data = JSON.stringify({"activity_name":"Roma","activity_information":"Italy"});
-xhr.send(data);
+    const formData = {};
+
+    function AddToMyDatabase(event) {
+       //debugger
+       for (let add of event) {
+           if(add.name) {
+               formData[add.name] = add.value;
+           }
+       }
+       console.log('handle submit works!', formData);
+    
+       const data1 = JSON.stringify(formData);
+       regUser(data1);
+       return false;
+    
+    
+    function regUser(value) {
+       
+       const request = new XMLHttpRequest()
+    
+       request.onload = () => {}
+       const address = 'http://localhost:8080/activity';
+       request.open('POST', address);
+       request.setRequestHeader('Content-Type', 'application/json');
+       request.send(value);
+    }}
 
 
+
+function deleteLocation(){
+   const request = new XMLHttpRequest();
   
+   request.open('DELETE', 'http://localhost:8080/activity/' + this.getAttribute('data-id'));
+   request.send();
+}
+
+
 
 

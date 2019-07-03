@@ -1,0 +1,38 @@
+body {
+    background: url('https://lonelyplanetimages.imgix.net/mastheads/stock-photo-roman-sunset-77415821.jpg?sharp=10&vib=20&w=1200') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+  }
+  .lead{
+      text-align: center;
+  }
+  h1{
+      text-align: center;
+  }
+ 
+  .image1{
+      padding: 10px;
+      text-align: left;
+      width: 45%;
+  }
+  .image2{
+      padding-left: 30px;
+      text-align: right;
+      width: 48%;
+  }
+
+  .lead{
+      padding: 15px;
+  }
+  .font-weight-light{
+      font-family: "La Belle Aurore";
+      font-size: 3em;
+  }
+  .heading{
+      font-family: "La Belle Aurore";
+    font-size: 2em;
+    text-align: center;
+  }
+  
