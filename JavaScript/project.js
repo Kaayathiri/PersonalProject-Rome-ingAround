@@ -34,10 +34,6 @@ function generateActivity(item) {
     wrapper.append(button);
     
 
-   // button.setAttribute("onClick", DeleteFromDatabase(item.id));
-   //  if (button.onclick==item.id){
-   //     DeleteFromDatabase(item.id)
-   //  }
 
    return wrapper; 
 }
@@ -67,6 +63,9 @@ xhr.send();
                formData[add.name] = add.value;
            }
        }
+       
+       formData['activity_image'] = 'card-image-11.jpg';
+
        console.log('handle submit works!', formData);
     
        const data1 = JSON.stringify(formData);

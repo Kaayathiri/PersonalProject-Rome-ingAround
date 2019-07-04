@@ -98,3 +98,8 @@ a.socialIcon:hover, .socialHoverClass {
   -ms-transition: all 0.8s;
   transition: all 0.8s;
 }
+
+
+h4{
+  color: black;
+}
